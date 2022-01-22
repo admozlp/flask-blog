@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="jumbotron text-center">
+    <h3>Kod Bloğuna Hoşgeldiniz{% if session["logged_in"] %}
+        , {{session["username"]}}
+    {% endif %}
+</h3>
+    <p>Bu blogta geliştiriciler olarak yazı ve kodlaranızı paylaşarak programalama öğrenmek
+    isteyen insanlara yardımcı olabilir ve kendinizi geliştirebilirsiniz</p>        
+</div>    
+{% endblock %}

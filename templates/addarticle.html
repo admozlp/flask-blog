@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block body %}
+{% from "includes/_formhelpers.html" import render_field %}
+<div class="row" >
+    <div class="col-md-9 offset-md-3">
+        <div class="col-lg-8">
+            <form method = "post">
+                {{ render_field(form.title,class = "form-control") }}
+                {{ render_field(form.content,class = "form-control") }}                
+                <button type="submit" class="btn btn-danger form-control">Kaydet</button><br>    
+                <hr>        
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="row" >
+    <div class="col-md-9 offset-md-3">
+        <div class="col-lg-8">
+            <h2>Makaleler</h2>
+            <hr>
+            {% if articles %}
+            <form action="/search" method="POST">
+                <input type="text" name="keyword" class="input-sm" maxlength="100" placeholder="Ara...">
+             <button type="submit" class="btn btn-danger">Ara</button>
+        </form><hr>
+                {% for article in articles %}
+                    <a href="/detail/{{article.id}}" style="color: black;"><h3 class="mt-4">{{article.title}}</h3></a>        
+                    <small> <b>{{article.author}}</b> tarafından oluşturuldu</small>    
+                    <br>
+                    <small>Oluşturulma Tarihi :{{article.created_date}}</small>
+                    <br>
+                    <p>{{article.content|safe}}</p>                    
+                    <hr>
+                {% endfor %}            
+            {% else %}
+            <div class="alert alert-danger">Makale Bulunamadı</div>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}
